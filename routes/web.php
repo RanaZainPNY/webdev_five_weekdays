@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\WebController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ProductController;
 
 // Route::get('/', function () {
 //     // return view('welcome');
@@ -20,3 +21,12 @@ Route::get('/about', [WebController::class, 'about']);
 // Route::get("/about", function () {
 //     return view('about');
 // });
+
+// Routes for admin views
+Route::get("/admin/products", [ProductController::class, 'index'])->name("products.index");
+Route::get("/admin/products/create", [ProductController::class, 'create'])->name("products.create");
+Route::post("/admin/products", [ProductController::class, 'store'])->name("products.store");
+Route::delete('/admin/products/{product}', [ProductController::class, 'destroy'])->name('products.destroy');
+
+// Route::get('/products/{product}/edit', [ProductController::class, 'edit'])->name('products.edit');
+// Route::put('/products/{product}', [ProductController::class, 'update'])->name('products.update');
