@@ -36,37 +36,24 @@
                         <div class="card-body">
                             <div class="mb-3">
                                 <label class="form-label h5" for="name">Name</label>
-                                <input value="{{old('name', $product->name)}}" type="text" name="name" id="name"
-                                    placeholder="Enter your Name"
-                                    class=" @error('name') is-invalid @enderror form-control form-control-lg">
-                                @error('name')
-                                    <p class="text-danger">{{$message}}</p>
-                                @enderror
+                                <input value="{{$product->name}}" type="text" name="name" id="name" placeholder="Enter your Name"
+                                    class="  form-control form-control-lg">
                             </div>
                             <div class="mb-3">
                                 <label for="sku" class="form-label h5">SKU</label>
-                                <input value="{{old('sku', $product->sku)}}" type="text" name="sku" id="sku"
-                                    class="@error('sku') is-invalid @enderror form-control form-control-lg"
+                                <input value="{{$product->sku}}" type="text" name="sku" id="sku" class=" form-control form-control-lg"
                                     placeholder="Enter SKU">
-                                @error('sku')
-                                    <p class="text-danger">{{$message}}</p>
-                                @enderror
                             </div>
                             <div class="mb-3">
                                 <label for="price" class="form-label h5">Price</label>
-                                <input value="{{old('price', $product->price)}}" placeholder="Enter Price" type="text"
-                                    name="price" id="price"
-                                    class="@error('price') @enderror form-control form-control-lg">
-                                @error('price')
-                                    <p class="text-danger">{{$message}}</p>
-                                @enderror
+                                <input value="{{$product->price}}" placeholder="Enter Price" type="text" name="price" id="price"
+                                    class=" form-control form-control-lg">
                             </div>
 
                             <div class="mb-3">
                                 <label for="Description" class="form-label h5">Description</label>
                                 <textarea placeholder="Enter description" cols="30" rows="5" name="description"
-                                    id="description"
-                                    class="form-control form-control-lg">{{old('description', $product->description)}}</textarea>
+                                    id="description" class="form-control form-control-lg">{{$product->description}}</textarea>
                             </div>
                             <div class="mb-3">
                                 <label for="image" class="form-label h5">Image</label>

@@ -29,9 +29,9 @@
                     <a href="" class="btn btn-primary">Orders</a>
                 </div> -->
             </div>
-            <div class="col-8">
+            <div class="col-9">
                 <div class="card">
-                    <div class="card-head  w-100 d-flex justify-content-between">
+                    <div class="card-head w-100 d-flex justify-content-between">
                         <h3>Products</h3>
                         <a href="{{route('products.create')}}" class="btn btn-dark">Add</a>
                     </div>
@@ -40,6 +40,7 @@
                             <thead>
                                 <tr>
                                     <th>Id</th>
+                                    <th>Image</th>
                                     <th>Name</th>
                                     <th>SKU</th>
                                     <th>Price</th>
@@ -51,12 +52,19 @@
                                 @foreach ($products as $product)
                                     <tr>
                                         <td>{{$product->id}}</td>
+                                        <td>
+                                            @if($product->image != "")
+                                                <img width="50px" src="{{asset('uploads/products/' . $product->image)}}" alt="">
+                                            @endif
+                                        </td>
                                         <td>{{$product->name}}</td>
                                         <td>{{$product->sku}}</td>
                                         <td>{{$product->price}}</td>
                                         <td>{{$product->description}}</td>
                                         <td>
-                                            <a href="" class="btn btn-success">Edit</a>
+                                            <!-- <a href="" class="btn btn-success">Edit</a> -->
+                                            <a href="{{route('products.edit', $product->id)}}"
+                                                class="btn my-1 btn-dark">Edit</a>
                                             <button onclick="deleteProduct({{$product->id}})"
                                                 class="btn btn-danger">Delete</button>
                                         </td>
